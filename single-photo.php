@@ -1,4 +1,4 @@
-nav<?php get_header(); ?>
+<?php get_header(); ?>
 <article itemscope itemtype="http://schema.org/ImageGallery" role="article">
 	<?php if (have_posts()) : ?>  
 	<?php while (have_posts()) : the_post(); ?>

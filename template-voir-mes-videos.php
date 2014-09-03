@@ -5,7 +5,7 @@
 	<!-- #primary BEGIN -->
 	<div id="primary" class="col-md-12">
 		<h1>Mes vidéos</h1>
-		<a id="open-video-form" class="btn" href="#"><i class="fui-plus-16"></i> Ajouter une vidéo</a>
+		<a id="open-video-form" class="btn" href="#"><i class="fa fa-plus"></i> Ajouter une vidéo</a>
 
 		<?php
 		if(defined('ADD_VIDEO_ERROR'))

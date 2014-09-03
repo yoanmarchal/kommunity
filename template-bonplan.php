@@ -4,7 +4,7 @@ Template Name: template bonplan
 */
 ?>
 <?php get_header(); ?>
-		<h1 class="col-md-12"><i class="fui-calendar-16"></i> Bons plans</h1>
+		<h1 class="col-md-12"><i class="fa fa-tag"></i> Bons plans</h1>
 		<section class="col-md-9">
 			<?php include (TEMPLATEPATH . '/filter.php'); ?>
 				<ul class="list-unstyled">

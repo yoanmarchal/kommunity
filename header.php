@@ -188,7 +188,7 @@
 
 
 
-			<form id="search-box" name="searchform" method="get" action="<?php bloginfo("url"); ?>" class="navbar-form navbar-left pull-right" role="search">
+			<form id="search-box" name="searchform" method="get" action="<?php bloginfo("url"); ?>" class="navbar-form navbar-left pull-right hidden-xs" role="search">
 
 				<div class="form-group">
 

@@ -428,7 +428,7 @@ if ($user_ID) {
 					</fieldset>
 
 					<div class="col-md-12">
-						<button type="submit" class="btn" id="submit"><i class="fui-checkmark-16"></i> Valider</button>
+						<button type="submit" class="btn" id="submit"><i class="fa fa-check"></i> Valider</button>
 					</div>
 
 				</form>

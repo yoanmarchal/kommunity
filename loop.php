@@ -20,13 +20,20 @@
 
 		<div class="col-md-9">
 
-			<header>
+			
 				<h3 itemprop="name">
-					<a  itemprop="url" href="<?php the_permalink() ?>" rel="bookmark">
-						<?php the_title(); ?>
-					</a>
+					<?php the_title(); ?>
 				</h3>
-			</header>
+				<i>Publié il y a <meta itemprop="datePublished" content="<?php the_date(); ?>"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); ?> par 
+
+				<a itemprop="author" rel="author" href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
+
+					<span itemprop="name"><?php the_author_meta('display_name'); ?></span>
+
+				</a>
+
+				</i>
+
 			<article>
 
 									<!-- date et heure du bon plan sortie -->
@@ -65,25 +72,11 @@
 					?>
 
 				<?php the_excerpt()?>
-
-			</article>
-
-			<footer>
-
-				<i>Publié il y a <meta itemprop="datePublished" content="<?php the_date(); ?>"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); ?> par 
-
-				<a itemprop="author" rel="author" href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
-
-					<span itemprop="name"><?php the_author_meta('display_name'); ?></span>
-
+				<a  itemprop="url" href="<?php the_permalink() ?>" rel="bookmark" class="btn clearfix">
+					Continuer à lire 
 				</a>
 
-				</i>
-
-				
-
-			</footer>
-
+			</article>
 		</div>
 
 		<?php show_edit_button(); ?>

@@ -5,7 +5,7 @@
 	<!-- #primary BEGIN -->
 	<div id="primary" class="col-md-12">
 	<h1>Mes photos</h1>
-	<a class="btn" id="open-photo-form" href="#primary-form-photo"><i class="fui-plus-16"></i> Ajouter une photo</a>
+	<a class="btn" id="open-photo-form" href="#primary-form-photo"><i class="fa fa-plus"></i> Ajouter une photo</a>
 	<div id="primary-form-photo">
 		<form action="<?php echo add_query_arg('do', 'add_photo'); ?>" id="primaryPostForm" method="POST" enctype="multipart/form-data" role="form" class="add-top">
 
@@ -79,7 +79,7 @@
 						<input type="file" class="preview-img form-control"  name="thumbnail-0" id="thumbnail-0" multiple="multiple" class="required" >
 					</fieldset>
 					<fieldset class="col-md-4" id="add-image">
-							<a class="btn table-cell v-center" href="#" id="add_input_image_field"><i class="fui-plus-16"></i> Ajouter une image</a> 
+							<a class="btn table-cell v-center" href="#" id="add_input_image_field"><i class="fa fa-plus"></i> Ajouter une image</a> 
 					</fieldset>
 
 				</fieldset>
@@ -88,7 +88,7 @@
 
 			<fieldset class="form-group">
 				<input type="hidden" name="submitted" id="submitted" value="true" />
-				<button type="submit" class="btn form-control"><i class="fui-checkmark-16"></i> Envoyer</button>
+				<button type="submit" class="btn form-control"><i class="fa fa-check"></i> Envoyer</button>
 			</fieldset>
 		</form>
 		<hr>

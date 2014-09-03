@@ -1,7 +1,7 @@
 <?php /*  sidebar ads    */
 $pubpath =  get_template_directory_uri() . '/images/pubs/';
 ?>
-<section id="pub-200" class="col-md-3 pull-right">
+<section id="pub-200" class="col-md-3 pull-right hidden-xs">
 
 	<ul data-liffect="zoomIn">
 		<li class="pull-right">
