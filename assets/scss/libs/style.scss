@@ -1,0 +1,75 @@
+/*
+Theme Name: Kommunity
+Theme URI: http://underscores.me/
+Author: yoan marchal
+Author URI: http://yoanmarchal.com
+Description: Wordpress theme
+Version: 1.0
+License: GNU General Public License
+License URI: license.txt
+Text Domain: kommunity
+Domain Path: /languages/
+Tags:
+
+
+*/
+// Core variables and mixins
+@import "_variables";
+@import "_mixins";
+
+
+// Reset
+@import "_normalize";
+@import "_print";
+
+// Core CSS
+@import "_scaffolding";
+@import "_type";
+@import "_code";
+@import "_grid";
+@import "_tables";
+@import "_forms";
+@import "_buttons";
+@import	"_fonts"; //responsive
+@import	"_wordpress"; //wordpress core
+
+// Components
+@import "_component-animations";
+@import "_glyphicons";
+@import "_dropdowns";
+@import "_button-groups";
+@import "_input-groups";
+@import "_navs";
+@import "_navbar";
+@import "_breadcrumbs";
+@import "_pagination";
+@import "_pager";
+@import "_labels";
+@import "_badges";
+@import "_jumbotron";
+@import "_thumbnails";
+@import "_alerts";
+@import "_progress-bars";
+@import "_media";
+@import "_list-group";
+@import "_panels";
+@import "_wells";
+@import "_close";
+
+// Components w/ JavaScript
+@import "_modals";
+@import "_tooltip";
+@import "_popovers";
+@import "_carousel";
+
+// Utility classes
+@import "_utilities";
+@import "_responsive-utilities";
+
+@import "_piker";
+@import "_animations";
+
+@import "_swiper";
+@import "_toaster";
+
+@import "_personalisations";
