@@ -3,25 +3,24 @@
 Template Name: connection
 */
 $error = false;
-if(!empty($_POST)){
-	$user = wp_signon($_POST);
-	if (is_wp_error($user)) {
-		$error = $user->get_error_message();
-	} else {
-		$redirect_to = home_url()."/profil";//si non connecté -> page login
-		wp_safe_redirect($redirect_to);
-		exit;	
-		/*
+if (!empty($_POST)) {
+    $user = wp_signon($_POST);
+    if (is_wp_error($user)) {
+        $error = $user->get_error_message();
+    } else {
+        $redirect_to = home_url().'/profil'; //si non connecté -> page login
+        wp_safe_redirect($redirect_to);
+        exit;
+        /*
 
-		header('location:profil');
-		*/
-
-	}
+        header('location:profil');
+        */
+    }
 } else {
-	$user = wp_get_current_user();
-	if($user->ID != 0) {
-		header('location:profil');
-	}
+    $user = wp_get_current_user();
+    if ($user->ID != 0) {
+        header('location:profil');
+    }
 }
 ?>
 
@@ -29,9 +28,9 @@ if(!empty($_POST)){
 <section class="col-md-12">
 	<h1>Connexion</h1>
 
-	<?php if($error) :?>
+	<?php if ($error) :?>
 		<div class="error">
-			<?php echo $error ; ?>
+			<?php echo $error; ?>
 		</div>
 	<?php endif ?>
 	<div class="login-form">
@@ -51,7 +50,7 @@ if(!empty($_POST)){
 				</div>
 			</fieldset>
 			<fieldset class="form-group">
-				<a class="login-link" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Mot de passe oublié ?</a>
+				<a class="login-link" href="<?php echo wp_lostpassword_url(get_permalink()); ?>" title="Lost Password">Mot de passe oublié ?</a>
 			</fieldset>
 
 			<fieldset class="form-group">
@@ -60,4 +59,4 @@ if(!empty($_POST)){
 		</form>
 	</div>
 </section>
-<?php get_footer();?>
+<?php get_footer(); ?>

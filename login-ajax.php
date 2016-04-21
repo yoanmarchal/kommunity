@@ -5,42 +5,43 @@ Template Name: Custom Wordpress Login
 global $user_ID;
 
 if (!$user_ID) {
+    if ($_POST) {
+        //We shall SQL escape all inputs
+        $username = $wpdb->escape($_REQUEST['username']);
+        $password = $wpdb->escape($_REQUEST['password']);
+        $remember = $wpdb->escape($_REQUEST['rememberme']);
 
-	if($_POST){
-		//We shall SQL escape all inputs
-		$username = $wpdb->escape($_REQUEST['username']);
-		$password = $wpdb->escape($_REQUEST['password']);
-		$remember = $wpdb->escape($_REQUEST['rememberme']);
-	
-		if($remember) $remember = "true";
-		else $remember = "false";
-		$login_data = array();
-		$login_data['user_login'] = $username;
-		$login_data['user_password'] = $password;
-		$login_data['remember'] = $remember;
-		$user_verify = wp_signon( $login_data, false ); 
-		//wp_signon is a wordpress function which authenticates a user. It accepts user info parameters as an array.
-		
-		if ( is_wp_error($user_verify) ) 
-		{
-		   echo "<span class='error'>Invalid username or password. Please try again!</span>";
-		   exit();
-		 } else 
-		 {	
-			echo "<script type='text/javascript'>window.location='". home_url() ."'</script>";
-			exit();
-		  }
-	} else { 
+        if ($remember) {
+            $remember = 'true';
+        } else {
+            $remember = 'false';
+        }
+        $login_data = [];
+        $login_data['user_login'] = $username;
+        $login_data['user_password'] = $password;
+        $login_data['remember'] = $remember;
+        $user_verify = wp_signon($login_data, false);
+        //wp_signon is a wordpress function which authenticates a user. It accepts user info parameters as an array.
 
-	get_header();
+        if (is_wp_error($user_verify)) {
+            echo "<span class='error'>Invalid username or password. Please try again!</span>";
+            exit();
+        } else {
+            echo "<script type='text/javascript'>window.location='".home_url()."'</script>";
+            exit();
+        }
+    } else {
+        get_header();
 
-	?>
+        ?>
 
 	<div id="container">
 		<div id="content">
-			<?php the_title(); ?>
+			<?php the_title();
+        ?>
 			<div id="result"></div> <!-- To hold validation results -->
-				<form id="wp_login_form" action="<?php echo get_option('siteurl'); ?>/wp-login.php" method="post">
+				<form id="wp_login_form" action="<?php echo get_option('siteurl');
+        ?>/wp-login.php" method="post">
 					<label>Username</label><br />
 					<input type="text" name="username" class="text" value="" /><br />
 					<label>Password</label><br />
@@ -53,9 +54,9 @@ if (!$user_ID) {
 			</div>
 		</div>
 	<?php get_footer();
-	}
-} 	else {
-	echo "<script type='text/javascript'>window.location='". home_url() ."'</script>";
+    }
+} else {
+    echo "<script type='text/javascript'>window.location='".home_url()."'</script>";
 } ?>
 <script type="text/javascript">  						
 $("#submitbtn").click(function() {
@@ -64,7 +65,7 @@ $("#submitbtn").click(function() {
 		var input_data = $('#wp_login_form').serialize();
 		$.ajax({
 			type: "POST",
-			url:  "<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>",
+			url:  "<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>",
 			data: input_data,
 			success: function(msg){
 				$('.loader').remove();

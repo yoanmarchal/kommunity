@@ -1,39 +1,44 @@
 <?php
 
-//Modification liste commentaires 
-
+//Modification liste commentaires
 
 // commentaires
-function show_portfolio_comments( $post_ID ) 
+function show_portfolio_comments($post_ID)
 {
     // NOT approved
-    $comments_unapproved = get_comments( array( 'status' => 'hold', 'post_id' => $post_ID ) );
-    foreach ( $comments_unapproved as $comments) 
-    {
-      if ( current_user_can( 'edit_published_posts' )){
-      ?>
+    $comments_unapproved = get_comments(['status' => 'hold', 'post_id' => $post_ID]);
+    foreach ($comments_unapproved as $comments) {
+        if (current_user_can('edit_published_posts')) {
+            ?>
       <div class="comment">
          <h4>Unapproved Comments on your portfolio</h4>
-         <div class="comment-author"><?php echo $comment->comment_author; ?></div>
-         <div class="comment-content"><?php echo $comment->comment_content; ?></div>
+         <div class="comment-author"><?php echo $comment->comment_author;
+            ?></div>
+         <div class="comment-content"><?php echo $comment->comment_content;
+            ?></div>
       </div>
       <?php
-      } // endif; - current_user_can( 'edit_published_posts' )
+
+        } // endif; - current_user_can( 'edit_published_posts' )
     }
 
     // ALREADY approved
-    $comments_approved = get_comments( array( 'status' => 'approve', 'post_id' => $post_ID ) );
-    foreach ( $comments_approved as $comments) 
-    {
-      ?>
+    $comments_approved = get_comments(['status' => 'approve', 'post_id' => $post_ID]);
+    foreach ($comments_approved as $comments) {
+        ?>
       <div class="comment">
-      <?php if ( current_user_can( 'edit_published_post' )) { ?>
+      <?php if (current_user_can('edit_published_post')) {
+    ?>
          <h4>Approved Comments on your portfolio</h4>
-      <?php }  // endif; - current_user_can( 'edit_published_posts' ) ?>
-         <div class="comment-author"><?php echo $comment->comment_author; ?></div>
-         <div class="comment-content"><?php echo $comment->comment_content; ?></div>
+      <?php 
+}  // endif; - current_user_can( 'edit_published_posts' )?>
+         <div class="comment-author"><?php echo $comment->comment_author;
+        ?></div>
+         <div class="comment-content"><?php echo $comment->comment_content;
+        ?></div>
       </div>
       <?php
+
     }
 }
 
@@ -69,7 +74,7 @@ function mytheme_comment($comment, $args, $depth) {
     <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
       <?php
 
-       
+
         printf( __('%1$s at %2$s', 'kommunity'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)', 'kommunity'),'  ','' );
       ?>
     </div>

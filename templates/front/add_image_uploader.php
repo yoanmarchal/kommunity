@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-/* 
+
+/*
  ref : http://www.krishnakantsharma.com/2012/01/image-uploads-on-wordpress-admin-screens-using-jquery-and-new-plupload/
 
 
@@ -8,7 +9,7 @@
 
 function plu_admin_enqueue() { //ajout des scripts et css
     wp_enqueue_script('plupload-all');
- 
+
     wp_register_script('myplupload', 'http://176.31.106.150/~devellop/wp-content/themes/pub4you-tlp/js/Myplupload.js');
     wp_enqueue_script('myplupload',false,'',true );
 
@@ -54,14 +55,14 @@ add_action("wp_footer", "plupload_footer");
 
 
 function g_plupload_action() {
- 
+
     // check ajax noonce
     $imgid = $_POST["imgid"];
     check_ajax_referer($imgid . 'pluploadan');
- 
+
     // handle file upload
     $status = wp_handle_upload($_FILES[$imgid . 'async-upload'], array('test_form' => true, 'action' => 'plupload_action'));
- 
+
     // send the uploaded file url in response
     echo $status['url'];
     exit;
@@ -69,4 +70,3 @@ function g_plupload_action() {
 add_action('wp_ajax_plupload_action', 'g_plupload_action');
 
 */
-

@@ -8,14 +8,17 @@ Template Name: register
 	<h1>Enregistrement</h1>
 	<div class="registration-panel">
 			<?php
-			  if(defined('REGISTRATION_ERROR'))
-			    foreach(unserialize(REGISTRATION_ERROR) as $error)
-			      echo "<div class=\"error\"><i class='icon-warning-sign'></i> {$error}</div>";
-			  // errors here, if any
+              if (defined('REGISTRATION_ERROR')) {
+                  foreach (unserialize(REGISTRATION_ERROR) as $error) {
+                      echo "<div class=\"error\"><i class='icon-warning-sign'></i> {$error}</div>";
+                  }
+              }
+              // errors here, if any
 
-			  elseif(defined('REGISTERED_A_USER'))
-			    echo '<div class="center infos"><i class="icon-ok"></i> Un email contenant votre mot de passe à été envoyé  '.REGISTERED_A_USER.'</div>';
-			?>
+              elseif (defined('REGISTERED_A_USER')) {
+                  echo '<div class="center infos"><i class="icon-ok"></i> Un email contenant votre mot de passe à été envoyé  '.REGISTERED_A_USER.'</div>';
+              }
+            ?>
 			<form action="<?php echo add_query_arg('do', 'register'); ?>" method="post" id="register" role="form" class="form-horizontal">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">identifiant</label>
@@ -40,4 +43,4 @@ Template Name: register
 			</form>
 	</div>
 </div>
-<?php get_footer();?>
+<?php get_footer(); ?>

@@ -1,4 +1,5 @@
 <?php
+
 /*  recuperation du nombre de fan facebook   */
 /////bug de temps en temps
 /*
@@ -12,7 +13,7 @@ function fb_count(){
          return 'Error!!';
    }else{
         $countOrig = strip_tags($data[body]);
-	$count = preg_replace('/\s+/','',$countOrig); // strip whitespace
+    $count = preg_replace('/\s+/','',$countOrig); // strip whitespace
    }
 set_transient('fb5_count', $count, 60*60*24); // 24 hour cache
 return $count;
