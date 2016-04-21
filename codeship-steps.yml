@@ -1,0 +1,4 @@
+- service: php
+  command: phpunit tests/unit
+- service: php
+  command: phpunit tests/integration
