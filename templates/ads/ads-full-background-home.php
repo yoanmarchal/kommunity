@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 echo '<style>
 html {
 position: relative;
@@ -7,4 +8,3 @@ width: 100%;
 height: 100%;
 }
 </style>';
-?>

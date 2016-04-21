@@ -3,7 +3,7 @@
  <?php get_header(); ?>
 <form id="thumbnail_upload" method="post" action="#" enctype="multipart/form-data">
   <input type="file" name="thumbnail" id="thumbnail">
-  <?php $nonce= wp_create_nonce  ('upload_thumb'); ?>
+  <?php $nonce = wp_create_nonce('upload_thumb'); ?>
   <input type="hidden" name="post_id" id="post_id" value="1">
   <input type="hidden" name="action" id="action" value="my_upload_action">
   <input id="submit-ajax" name="submit-ajax" type="submit" value="upload">

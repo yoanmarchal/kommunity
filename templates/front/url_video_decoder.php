@@ -1,32 +1,29 @@
 <?php
 
-function detectUrl($url){
+function detectUrl($url)
+{
     $youtube_regexp = "/^http:\/\/(?:www\.)?(?:youtube.com|youtu.be)\/(?:watch\?(?=.*v=([\w\-]+))(?:\S+)?|([\w\-]+))$/";
     // Match a URL.
     preg_match($youtube_regexp, $url, $matches);
 
     // Remove empty values from the array (regexp shit).
-    $matches = array_filter($matches, function($var) {
-        return($var !== '');
+    $matches = array_filter($matches, function ($var) {
+        return $var !== '';
     });
-    
+
     // If we have 2 elements in array, it means we got a valid url!
     // $matches[2] is the youtube ID!
-    if (sizeof($matches) == 2) {
+    if (count($matches) == 2) {
         var_dump($matches);
     }
-
-} 
-
-function getYoutubeId($url){
-    $pattern = '~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i';
-    $youtube_id = (preg_replace($pattern, '$1', $url));
-    var_dump ($youtube_id);
 }
 
-
-
-
+function getYoutubeId($url)
+{
+    $pattern = '~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i';
+    $youtube_id = (preg_replace($pattern, '$1', $url));
+    var_dump($youtube_id);
+}
 
 /**
  * Given a string containing any combination of YouTube and Vimeo video URLs in
@@ -49,17 +46,18 @@ function getYoutubeId($url){
  *   )
  * )
  *
- * @param       string  $videoString
- * @return      array   An array of video metadata if found
+ * @param string $videoString
+ *
+ * @return array An array of video metadata if found
  *
  * @author      Corey Ballou http://coreyballou.com
  * @copyright   (c) 2012 Skookum Digital Works http://skookum.com
- * @license     
+ * @license
  */
 function parseVideos($videoString = null)
 {
     // return data
-    $videos = array();
+    $videos = [];
 
     if (!empty($videoString)) {
 
@@ -72,10 +70,10 @@ function parseVideos($videoString = null)
         foreach ($videoString as $video) {
 
             // check for iframe to get the video url
-            if (strpos($video, 'iframe') !== FALSE) {
+            if (strpos($video, 'iframe') !== false) {
                 // retrieve the video url
                 $anchorRegex = '/src="(.*)?"/isU';
-                $results = array();
+                $results = [];
                 if (preg_match($anchorRegex, $video, $results)) {
                     $link = trim($results[1]);
                 }
@@ -88,25 +86,25 @@ function parseVideos($videoString = null)
             if (!empty($link)) {
 
                 // initial values
-                $video_id = NULL;
-                $videoIdRegex = NULL;
-                $results = array();
+                $video_id = null;
+                $videoIdRegex = null;
+                $results = [];
 
                 // check for type of youtube link
-                if (strpos($link, 'youtu') !== FALSE) {
-                    if (strpos($link, 'youtube.com') !== FALSE) {
+                if (strpos($link, 'youtu') !== false) {
+                    if (strpos($link, 'youtube.com') !== false) {
                         // works on:
                         // http://www.youtube.com/embed/VIDEOID
                         // http://www.youtube.com/embed/VIDEOID?modestbranding=1&amp;rel=0
                         // http://www.youtube.com/v/VIDEO-ID?fs=1&amp;hl=en_US
                         $videoIdRegex = '/youtube.com\/(?:embed|v){1}\/([a-zA-Z0-9_]+)\??/i';
-                    } else if (strpos($link, 'youtu.be') !== FALSE) {
+                    } elseif (strpos($link, 'youtu.be') !== false) {
                         // works on:
                         // http://youtu.be/daro6K6mym8
                         $videoIdRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
                     }
 
-                    if ($videoIdRegex !== NULL) {
+                    if ($videoIdRegex !== null) {
                         if (preg_match($videoIdRegex, $link, $results)) {
                             $video_str = 'https://www.youtube.com/v/%s?fs=1&amp;autoplay=1';
                             $thumbnail_str = 'https://i3.ytimg.com/vi/%s/2.jpg';
@@ -117,8 +115,8 @@ function parseVideos($videoString = null)
                 }
 
                 // handle vimeo videos
-                else if (strpos($video, 'vimeo') !== FALSE) {
-                    if (strpos($video, 'player.vimeo.com') !== FALSE) {
+                elseif (strpos($video, 'vimeo') !== false) {
+                    if (strpos($video, 'player.vimeo.com') !== false) {
                         // works on:
                         // http://player.vimeo.com/video/37985580?title=0&amp;byline=0&amp;portrait=0
                         $videoIdRegex = '/player.vimeo.com\/video\/([0-9]+)\??/i';
@@ -128,7 +126,7 @@ function parseVideos($videoString = null)
                         $videoIdRegex = '/vimeo.com\/([0-9]+)\??/i';
                     }
 
-                    if ($videoIdRegex !== NULL) {
+                    if ($videoIdRegex !== null) {
                         if (preg_match($videoIdRegex, $link, $results)) {
                             $video_id = $results[1];
 
@@ -153,16 +151,14 @@ function parseVideos($videoString = null)
                 // check if we have a video id, if so, add the video metadata
                 if (!empty($video_id)) {
                     // add to return
-                    $videos[] = array(
-                        'url' => sprintf($video_str, $video_id),
+                    $videos[] = [
+                        'url'       => sprintf($video_str, $video_id),
                         'thumbnail' => sprintf($thumbnail_str, $video_id),
-                        'fullsize' => sprintf($fullsize_str, $video_id)
-                    );
+                        'fullsize'  => sprintf($fullsize_str, $video_id),
+                    ];
                 }
             }
-
         }
-
     }
 
     // return array of parsed videos

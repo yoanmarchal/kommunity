@@ -18,7 +18,7 @@ add_action('admin_enqueue_scripts', function($page){
 add_action('add_meta_boxes', function(){
   add_meta_box('gallery_photos', __('Photos'), 'upload_meta_box', 'photo', 'normal', 'high');
 
-});                                               
+});
 
 
 
@@ -42,7 +42,7 @@ function upload_meta_box(){ ?>
     'browse_button'       => 'plupload-browse-button',
     'container'           => 'plupload-upload-ui',
     'drop_element'        => 'drag-drop-area',
-    'file_data_name'      => 'async-upload',            
+    'file_data_name'      => 'async-upload',
     'multiple_queues'     => true,
     'max_file_size'       => wp_max_upload_size().'b',
     'url'                 => admin_url('admin-ajax.php'),
@@ -106,7 +106,7 @@ function upload_meta_box(){ ?>
         up.start();
       });
 
-      // a file was uploaded 
+      // a file was uploaded
       uploader.bind('FileUploaded', function(up, file, response) {
 
         // this is your ajax response, update the DOM with it or something...
@@ -114,7 +114,7 @@ function upload_meta_box(){ ?>
 
       });
 
-    });   
+    });
 
   </script>
   <?php

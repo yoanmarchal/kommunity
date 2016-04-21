@@ -1,5 +1,5 @@
 	<select id="elistcat">
-		<?php echo my_list_categories_select( array( 'orderby' => 'slug', 'order' => 'ASC','hide_empty'=>0 , 'number' => 300 ) ); ?>
+		<?php echo my_list_categories_select(['orderby' => 'slug', 'order' => 'ASC', 'hide_empty' => 0, 'number' => 300]); ?>
 	</select>
 
 <div id="board" class="metal linear">

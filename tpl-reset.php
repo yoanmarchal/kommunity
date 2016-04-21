@@ -1,8 +1,8 @@
-<?php  
-/* 
+<?php 
+/*
 Template Name: reset-password
 */
-get_header() ;
+get_header();
 
 ?>
 <div class="col-md-12">

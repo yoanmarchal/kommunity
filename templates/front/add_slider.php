@@ -1,9 +1,11 @@
 <?php
 // Add superzised
-function super_zised() {
-	if (!is_admin()) {
-     	function add_supaslider() { 
-		?>
+function super_zised()
+{
+    if (!is_admin()) {
+        function add_supaslider()
+        {
+            ?>
 	    	<script type="text/javascript">
 	    	jQuery(document).ready(function() {
 		    	$("#slider").responsiveSlides({
@@ -15,16 +17,19 @@ function super_zised() {
 		    });
 
     		</script><?php
-	    }
-	}
+
+        }
+    }
 }
 add_action('init', 'super_zised');
 
 // Add superzised
-function gallerie_responsive() {
-	if (!is_admin()) {
-     	function add_home_slider() { 
-		?>
+function gallerie_responsive()
+{
+    if (!is_admin()) {
+        function add_home_slider()
+        {
+            ?>
 	    	<script type="text/javascript">
 	    	jQuery(document).ready(function() {
 		    	$("#slider").responsiveSlides({
@@ -36,7 +41,8 @@ function gallerie_responsive() {
 		    });
 
     		</script><?php
-	    }
-	}
+
+        }
+    }
 }
 add_action('init', 'gallerie_responsive');

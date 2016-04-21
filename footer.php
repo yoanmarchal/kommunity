@@ -12,24 +12,38 @@
 				<section class="d-table">
 					<section class="table-cell v-center">
 						<a class="logo tooltips-b" title="Retour à la page d'acceuil" href="<?php echo home_url(); ?>" rel="home">
-				            <?php if ( of_get_option('logo_custom') ) { ?>
-				            	<img src="<?php echo of_get_option('logo_custom'); ?>" class="logo" />
-				            <?php } else { ?>
-				            	<img src="<?php bloginfo('template_directory'); ?>/assets/images/kommunity-logo.gif" alt="logo" class="logo">
+				            <?php if (of_get_option('logo_custom')) {
+    ?>
+				            	<img src="<?php echo of_get_option('logo_custom');
+    ?>" class="logo" />
+				            <?php 
+} else {
+    ?>
+				            	<img src="<?php bloginfo('template_directory');
+    ?>/assets/images/kommunity-logo.gif" alt="logo" class="logo">
 				            <?php
-				            } ?>
+
+} ?>
 						</a>
 					</section>
 				</section>	
 			</section>
 			<section class="col-md-10">
-				<span><?php bloginfo('name'); ?> © <?php echo date('Y');  ?> </span>
+				<span><?php bloginfo('name'); ?> © <?php echo date('Y'); ?> </span>
 				<section class="share-box white-color ">
 					<ul>
-						<li><a href="<?php if ( of_get_option('facebook_url') ) {echo of_get_option('facebook_url');} ?>"><i class="icon-facebook-sign"></i>Facebook</a></li>
-						<li><a href="<?php if ( of_get_option('twitter_url') ) {echo of_get_option('twitter_url');} ?>"><i class="icon-twitter-sign"></i></a>Twitter</li>
-						<li><a href="<?php if ( of_get_option('pinterest_url') ) {echo of_get_option('pinterest_url');} ?>"><i class="icon-pinterest-sign"></i>Pinterest</a></li>
-						<li><a href="<?php if ( of_get_option('google_plus_url') ) {echo of_get_option('google_plus_url');} ?>" rel="publisher"><i class="icon-google-plus-sign"></i>Google plus</a></li>
+						<li><a href="<?php if (of_get_option('facebook_url')) {
+    echo of_get_option('facebook_url');
+} ?>"><i class="icon-facebook-sign"></i>Facebook</a></li>
+						<li><a href="<?php if (of_get_option('twitter_url')) {
+    echo of_get_option('twitter_url');
+} ?>"><i class="icon-twitter-sign"></i></a>Twitter</li>
+						<li><a href="<?php if (of_get_option('pinterest_url')) {
+    echo of_get_option('pinterest_url');
+} ?>"><i class="icon-pinterest-sign"></i>Pinterest</a></li>
+						<li><a href="<?php if (of_get_option('google_plus_url')) {
+    echo of_get_option('google_plus_url');
+} ?>" rel="publisher"><i class="icon-google-plus-sign"></i>Google plus</a></li>
 					</ul>
 				</section>
 			</section>

@@ -2,7 +2,7 @@
 /*
 Template Name: template creer un compte
 */
-get_header();	 ?>
+get_header(); ?>
 <section id="crea-compte">
 	<article id="left-box" class="col2 text-center" >
 		<h2>Créer un compte pro</h2>
@@ -28,4 +28,4 @@ get_header();	 ?>
 		</section>
 	</article>
 </section>
-<?php get_footer();	 ?>
+<?php get_footer(); ?>
