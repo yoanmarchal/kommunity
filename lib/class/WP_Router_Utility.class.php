@@ -4,7 +4,6 @@
  * Date: 5/18/11
  * Time: 1:46 PM.
  */
-
 class WP_Router_Utility
 {
     const QUERY_VAR = 'WP_Route';

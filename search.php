@@ -71,7 +71,7 @@ if ($search_refer == 'bonplan') {
                         echo '<span itemprop="locality">'.$ville.'</span><span itemprop="addressRegion"> '.$region.'</span>';
                         echo '</span>';
                     } else {
-                        }
+                    }
                     ?>		
 				</div>
 		

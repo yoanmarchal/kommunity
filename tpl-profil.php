@@ -36,7 +36,7 @@ if ($user_ID) {
         update_user_meta($user_ID, 'description', $description);
         update_user_meta($user_ID, 'tel', $telephone);
 
-        wp_update_user( ['ID' => $user_ID, 'user_url' => $user_url]);
+        wp_update_user(['ID' => $user_ID, 'user_url' => $user_url]);
 
         update_user_meta($user_ID, 'facebook', $facebook);
         update_user_meta($user_ID, 'twitter', $twitter);
@@ -85,7 +85,7 @@ if ($user_ID) {
 
         if (isset($email)) {
             if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email)) {
-                wp_update_user( ['ID' => $user_ID, 'user_email' => $email]);
+                wp_update_user(['ID' => $user_ID, 'user_email' => $email]);
             } else {
                 $message = "<div class='error col-md-12'>Veuillez rentrer une adresse mail valide.</div>";
             }

@@ -4,7 +4,6 @@
  * Date: 5/22/11
  * Time: 4:14 PM.
  */
-
 class WP_Router_Sample
 {
     public static function init()

@@ -705,10 +705,10 @@ function profile_image_display($size, $img_id)
 
 function date2fr($adate)
 {
-    $moisfrancais =  [1 => 'Janvier', 'Février', 'Mars',
+    $moisfrancais = [1 => 'Janvier', 'Février', 'Mars',
     'Avril', 'Mai', 'Juin', 'Juillet', 'Août',
     'Septembre', 'Octobre', 'Novembre', 'Décembre', ];
-    $joursemainefrancais =  [0 => 'Dimanche', 'Lundi', 'Mardi',
+    $joursemainefrancais = [0 => 'Dimanche', 'Lundi', 'Mardi',
     'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', ];
     $jour = $adate->format('d');
     $mois = $moisfrancais[$adate->format('n')];

@@ -16,7 +16,6 @@
 */
     class classe_date
     {
-
         /*_______________________________________________________________________________________________________________
                                                                                 MEMBRES
 */
@@ -26,7 +25,7 @@
             'EN' => [0 => 'Sunday', 1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday'],
             ];
         protected $joursC = [
-            'FR' =>  [0 => 'Dim.', 1 => 'Lun.', 2 => 'Mar.', 3 => 'Mer.', 4 => 'Jeu.', 5 => 'Ven.', 6 => 'Sam.', 7 => 'Dim.'],
+            'FR' => [0 => 'Dim.', 1 => 'Lun.', 2 => 'Mar.', 3 => 'Mer.', 4 => 'Jeu.', 5 => 'Ven.', 6 => 'Sam.', 7 => 'Dim.'],
             'EN' => [0 => 'Sun.', 1 => 'Mon.', 2 => 'Tue.', 3 => 'Wed.', 4 => 'Thu.', 5 => 'Fri.', 6 => 'Sat.', 7 => 'Sun.'],
             ];
         protected $mois = [
@@ -489,13 +488,13 @@
                         $res = gmdate('Y-m-d'.($this->heure ? ' H:i:s' : ''), $timestamp);
                         break;
                     case 'STR':
-                        $res = gmdate('d/m/Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : ''): ''), $timestamp);
+                        $res = gmdate('d/m/Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : '') : ''), $timestamp);
                         break;
                     case 'FR':
                         $res = ($this->jourCourt ? $this->joursC['FR'][gmdate('w', $timestamp)] : $this->jours['FR'][gmdate('w', $timestamp)]).
                                 gmdate(' d ', $timestamp).
                                 ($this->moisCourt ? $this->moisC['FR'][gmdate('n', $timestamp)] : $this->mois['FR'][gmdate('n', $timestamp)]).
-                                gmdate(' Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : ''): ''), $timestamp);
+                                gmdate(' Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : '') : ''), $timestamp);
                         break;
                     case 'EN':
                         $day = gmdate(' d', $timestamp);
@@ -511,7 +510,7 @@
                         $res = ($this->jourCourt ? $this->joursC['EN'][gmdate('w', $timestamp)] : $this->jours['EN'][gmdate('w', $timestamp)]).
                                  $jour.
                                 ($this->moisCourt ? $this->moisC['EN'][gmdate('n', $timestamp)] : $this->mois['EN'][gmdate('n', $timestamp)]).
-                                gmdate(' Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : ''): ''), $timestamp);
+                                gmdate(' Y'.($this->heure ? ' H:i'.(!$this->heureCourte ? ':s' : '') : ''), $timestamp);
                         break;
                     case 'UNX':
                         $res = $timestamp;
