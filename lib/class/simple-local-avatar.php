@@ -6,7 +6,6 @@
 /**
  * add field to user profiles.
  */
-
 class Simple_Local_Avatars
 {
     private $user_id_being_edited, $avatar_upload_error, $remove_nonce, $avatar_ratings;

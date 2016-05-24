@@ -19,7 +19,6 @@ function kommunity_options_after()
  * The $directory_uri + file name is used for the key
  * The file name is the value
  */
-
 function options_stylesheets_get_file_list($directory_path, $filetype, $directory_uri)
 {
     $alt_stylesheets = [];
