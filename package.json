@@ -14,7 +14,7 @@
     "grunt-contrib-sass": "0.5.1",
     "grunt-contrib-watch": "0.5.3",
     "grunt-contrib-concat": "0.3.0",
-    "grunt-concat-in-order": "0.1.6",
+    "grunt-concat-in-order": "0.3.0",
     "grunt-rsync": "0.2.1"
   }
 }
