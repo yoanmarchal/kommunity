@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "grunt": "1.0.3",
-    "grunt-contrib-jshint": "2.0.0",
+    "grunt-contrib-jshint": "2.1.0",
     "grunt-contrib-nodeunit": "2.0.0",
     "grunt-contrib-compass": "1.1.1",
     "grunt-contrib-imagemin": "3.1.0",
